@@ -43,7 +43,7 @@ def upc_count()
 	upv_map = upv.each_slice(2000)
 	google_upv_map = []
 	upv_map.each_with_index do |data, i|
-		google_upv_map[i] = ''
+		google_upv_map[i] = "lat,lng\r"
 		data.each do |x|
 			draw << "{\"type\":\"marker\",\"latLng\":{\"lat\":#{x[0]},\"lng\":#{x[1]}},\"color\":\"#1aff00\"},"
 			google_upv_map[i] << "#{x[0]}\,#{x[1]}\r"
