@@ -32,7 +32,7 @@ def upc_count()
 	google_upc_map = []
 	upc_map = upc.each_slice(2000)
 	upc_map.each_with_index do |data,i|
-		google_upc_map[i] = '' 
+		google_upc_map[i] = "lat,lng\r" 
 		data.each do |x|
 			draw << "{\"type\":\"marker\",\"latLng\":{\"lat\":#{x[0]},\"lng\":#{x[1]}},\"color\":\"#246bce\"},"
 			google_upc_map[i] << "#{x[0]}\,#{x[1]}\r"
