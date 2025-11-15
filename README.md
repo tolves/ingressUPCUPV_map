@@ -2,7 +2,9 @@
 
 A simple Ruby tool that parses Ingress **game_log.tsv** and generates UPC / UPV datasets for mapping and visualization.
 
-数据来自于你向privacy@nianticspatial.com写信要求获取你的personal data, 度过不知道多少天之后他们会回信一个Google Drive文件，下载解压.
+数据来自于你向privacy@nianticspatial.com写信要求获取你的personal data, 度过不知道多少天之后他们会回信一个Google Drive文件，下载解压. 
+
+下面是写信模板，记得替换ID和邮箱
 
 ```text
 
@@ -15,8 +17,6 @@ Here are my details for verification:
 Agent ID: {YOUR_AGENT_ID}
 
 Email Address associated with the account:{YOUR_EMAIL_ADDRESS}
-
-Please let me know if you require any additional information to verify my identity or process this request.
 
 Please let me know if you require any additional information to verify my identity or process this request.
 
