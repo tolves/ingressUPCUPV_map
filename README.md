@@ -81,12 +81,12 @@ Kind regards,
 ## What the script does
 
 - 读取 game_log.tsv
-  - 根据动作类型识别：
-    - UPC = captured portal
-    - UPV = hack / deploy / upgrade / link / mod 等非 capture 互动
-  - 自动根据坐标去重（每个 portal 只保留一次）
-  - 输出 CSV（便于 GIS 和地图工具）
-  - 生成 IITC Draw Tools JSON
+- 根据动作类型识别：
+ - UPC = captured portal
+ - UPV = hack / deploy / upgrade / link / mod 等非 capture 互动
+- 自动根据坐标去重（每个 portal 只保留一次）
+- 输出 CSV（便于 GIS 和地图工具）
+- 生成 IITC Draw Tools JSON
 
 ---
 
