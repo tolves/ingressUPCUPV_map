@@ -2,7 +2,7 @@
 
 def upc_count()
 
-	ori_data = read_file("game_log.tsv")
+	ori_data = read_file("portal_history.tsv")
 	data = ori_data
 	data = data.split(/\n/)
 	data.shift
@@ -14,25 +14,21 @@ def upc_count()
 
 	data.map do |x|
 		i = x.split(/\t/)
-		if i[3] == "captured portal"
-			captured.push([i[1],i[2]])
+		if i[0] == "Captured"
+			captured.push([i[1].to_f,i[2].to_f])
 		end
-		if ['hacked friendly portal','created link','mod deployed','resonator deployed','hacked enemy portal','resonator upgraded'].index(i[3]) 
-			all_upv.push([i[1],i[2]])
-		end
+		all_upv.push([i[1].to_f,i[2].to_f])
 	end
 
 	upc = captured.uniq
-	all_upv.uniq!
-	upv = all_upv - upc
+	upv = all_upv.uniq
 
-	# draw_upc = '['
 	draw = '['
 
 	google_upc_map = []
 	upc_map = upc.each_slice(2000)
 	upc_map.each_with_index do |data,i|
-		google_upc_map[i] = "lat,lng\r" 
+		google_upc_map[i] = "latitude,longitude\r" 
 		data.each do |x|
 			draw << "{\"type\":\"marker\",\"latLng\":{\"lat\":#{x[0]},\"lng\":#{x[1]}},\"color\":\"#246bce\"},"
 			google_upc_map[i] << "#{x[0]}\,#{x[1]}\r"
@@ -43,7 +39,7 @@ def upc_count()
 	upv_map = upv.each_slice(2000)
 	google_upv_map = []
 	upv_map.each_with_index do |data, i|
-		google_upv_map[i] = "lat,lng\r"
+		google_upv_map[i] = "latitude,longitude\r"
 		data.each do |x|
 			draw << "{\"type\":\"marker\",\"latLng\":{\"lat\":#{x[0]},\"lng\":#{x[1]}},\"color\":\"#1aff00\"},"
 			google_upv_map[i] << "#{x[0]}\,#{x[1]}\r"
